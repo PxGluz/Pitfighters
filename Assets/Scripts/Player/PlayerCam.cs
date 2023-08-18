@@ -13,15 +13,9 @@ public class PlayerCam : MonoBehaviour
         finalDestination = destination.position + transform.TransformDirection(mouseDiff) * offsetSize;
         transform.position = Vector3.SmoothDamp(transform.position, finalDestination, ref current, smoothTime);
     }
-
-    private void RotatePlayer()
-    {
-        Player.m.rotateToPoint.angle = Vector3.Angle(Vector3.right, mouseDiff) * (mouseDiff.y > 0 ? -1f : 1) + 45f;
-    }
     
     void Update()
     {
         CameraFollow();
-        RotatePlayer();
     }
 }

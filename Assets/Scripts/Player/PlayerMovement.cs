@@ -23,13 +23,13 @@ public class PlayerMovement : MonoBehaviour
             moveVector *= Mathf.Sqrt(2) / 2;
         
         finalMovement = Quaternion.Euler(0, -45, 0) * moveVector;
-        Player.m.rb.AddForce(finalMovement * Player.m.weaponManager.currentWeapon.speed);
+        float finalSpeed = Player.m.weaponManager.currentWeapon.speed * (Player.m.weaponManager.blocking ? 0.5f : 1);
+        Player.m.rb.AddForce(finalMovement * finalSpeed);
     }
 
     private IEnumerator Dash()
     {
         canDash = false;
-        print(finalMovement);
         Player.m.rb.velocity = (dashOnCursor || finalMovement.magnitude == 0 ? Player.m.playerGraphics.forward : finalMovement) * Player.m.weaponManager.currentWeapon.dashRange;
         yield return new WaitForSeconds(Player.m.weaponManager.currentWeapon.dashCooldown);
         canDash = true;
@@ -37,13 +37,28 @@ public class PlayerMovement : MonoBehaviour
     
     void DashLogic()
     {
-        if (canDash && Input.GetKey(KeyCode.Space))
+        if (canDash && Input.GetKey(KeyCode.Space) && !Player.m.weaponManager.blocking)
             StartCoroutine(Dash());
     }
-
-    void Update()
+    
+    private void RotatePlayer()
     {
-        MovePlayer();
-        DashLogic();
+        Ray ray = Player.m.playerCamera.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, LayerMask.GetMask("Ground")))
+        {
+            float angle = Vector3.Angle(Vector3.right, hit.point - Player.m.playerGraphics.position);
+            bool flip = hit.point.z > Player.m.playerGraphics.position.z;
+            Player.m.rotateToPoint.angle = angle * (flip ? -1f : 1f) + 90f;
+        }
+    }
+    
+    void FixedUpdate()
+    {
+        if (!Player.m.weaponManager.attacking)
+        {
+            MovePlayer();
+            DashLogic();
+            RotatePlayer();
+        }
     }
 }

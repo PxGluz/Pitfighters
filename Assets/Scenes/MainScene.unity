@@ -345,7 +345,7 @@ GameObject:
   - component: {fileID: 288521549}
   - component: {fileID: 288521548}
   - component: {fileID: 288521547}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -501,12 +501,12 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
-  orthographic size: 5
+  orthographic: 1
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 2147483647
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -515,7 +515,7 @@ Camera:
   m_AllowMSAA: 1
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
+  m_OcclusionCulling: 0
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
 --- !u!4 &330585546
@@ -911,6 +911,7 @@ GameObject:
   - component: {fileID: 1122516039}
   - component: {fileID: 1122516041}
   - component: {fileID: 1122516042}
+  - component: {fileID: 1122516043}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -960,7 +961,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 1
 --- !u!114 &1122516041
 MonoBehaviour:
@@ -991,6 +992,29 @@ MonoBehaviour:
     speed: 5
     dashRange: 100
     dashCooldown: 1
+    blockAngle: 0
+    parryWindow: 0
+    attacks: []
+  blockingCooldown: 0.5
+  comboWindow: 0.5
+  currentAttack: 0
+  parrying: 0
+  blocking: 0
+  blockOnCooldown: 0
+  attacking: 0
+  shouldAttack: 0
+--- !u!114 &1122516043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1122516037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40124a4587da6464b8f0acc41f041498, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1251554783
 GameObject:
   m_ObjectHideFlags: 0
@@ -1021,6 +1045,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   angle: 0
+  rotationSpeed: 1
 --- !u!4 &1251554785
 Transform:
   m_ObjectHideFlags: 0
@@ -1120,5 +1145,7 @@ MonoBehaviour:
   playerMovement: {fileID: 1122516041}
   rotateToPoint: {fileID: 1251554784}
   weaponManager: {fileID: 1122516042}
+  playerCombat: {fileID: 1122516043}
   rb: {fileID: 1122516039}
   playerGraphics: {fileID: 1251554785}
+  playerCamera: {fileID: 330585545}
