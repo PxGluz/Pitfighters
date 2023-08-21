@@ -25,24 +25,24 @@ public class Player : MonoBehaviour
         /// <summary>
         /// Temp Function
         /// </summary>
-        public void DrawAttack(Transform direction)
+        public void DrawAttack(Transform direction, float intentDuration = 0.1f)
         {
             Vector3 offset3 = new Vector3(offset.x, 0, offset.y);
             switch (attackType)
             {
                 case AttackType.Circle:
-                    Debug.DrawRay(direction.position + offset3 + direction.right * size / 2, -direction.right * size, Color.red, 0.1f, false);
-                    Debug.DrawRay(direction.position + offset3 + direction.forward * size / 2, -direction.forward * size, Color.red, 0.1f, false);
-                    Debug.DrawRay(direction.position + offset3 + direction.right * size / 2 + direction.forward * size / 2, -(direction.right + direction.forward) * size, Color.red, 0.1f, false);
-                    Debug.DrawRay(direction.position + offset3 + direction.right * size / 2 - direction.forward * size / 2, -(direction.right - direction.forward) * size, Color.red, 0.1f, false);
+                    Debug.DrawRay(direction.position + offset3 + direction.right * size / 2, -direction.right * size, intentDuration != 0.1f ? Color.black : Color.red, intentDuration, false);
+                    Debug.DrawRay(direction.position + offset3 + direction.forward * size / 2, -direction.forward * size, intentDuration != 0.1f ? Color.black : Color.red, intentDuration, false);
+                    Debug.DrawRay(direction.position + offset3 + direction.right * size / 2 + direction.forward * size / 2, -(direction.right + direction.forward) * size, intentDuration != 0.1f ? Color.black : Color.red, intentDuration, false);
+                    Debug.DrawRay(direction.position + offset3 + direction.right * size / 2 - direction.forward * size / 2, -(direction.right - direction.forward) * size, intentDuration != 0.1f ? Color.black : Color.red, intentDuration, false);
                     break;
                 case AttackType.Rectangle:
-                    Debug.DrawRay(direction.position + offset3 + direction.right * size / 2, direction.forward * range, Color.red, 0.1f, false);
-                    Debug.DrawRay(direction.position + offset3 - direction.right * size / 2, direction.forward * range, Color.red, 0.1f, false);
+                    Debug.DrawRay(direction.position + offset3 + direction.right * size / 2, direction.forward * range, intentDuration != 0.1f ? Color.black : Color.red, intentDuration, false);
+                    Debug.DrawRay(direction.position + offset3 - direction.right * size / 2, direction.forward * range, intentDuration != 0.1f ? Color.black : Color.red, intentDuration, false);
                     break;
                 case AttackType.Cone:
-                    Debug.DrawRay(direction.position + offset3, Quaternion.Euler(0f, size / 2, 0f) * direction.forward * range, Color.red, 0.1f, false);
-                    Debug.DrawRay(direction.position + offset3, Quaternion.Euler(0f, -size / 2, 0f) * direction.forward * range, Color.red, 0.1f, false);
+                    Debug.DrawRay(direction.position + offset3, Quaternion.Euler(0f, size / 2, 0f) * direction.forward * range, intentDuration != 0.1f ? Color.black : Color.red, intentDuration, false);
+                    Debug.DrawRay(direction.position + offset3, Quaternion.Euler(0f, -size / 2, 0f) * direction.forward * range, intentDuration != 0.1f ? Color.black : Color.red, intentDuration, false);
                     break;
             }
         }

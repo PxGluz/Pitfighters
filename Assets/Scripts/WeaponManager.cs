@@ -6,6 +6,7 @@ public class WeaponManager : MonoBehaviour
     public Player.Weapon currentWeapon;
     public float blockingCooldown;
     public float comboWindow;
+    public bool isEnemy;
     
     [HideInInspector] public int currentAttack;
     [HideInInspector] public bool parrying, blocking, blockOnCooldown;
@@ -33,6 +34,12 @@ public class WeaponManager : MonoBehaviour
         shouldAttack = false;
         attacking = true;
         Player.Attack attack = currentWeapon.attacks[currentAttack];
+
+        if (isEnemy)
+        {
+            attack.DrawAttack(direction, 1f);
+            yield return new WaitForSeconds(1f);
+        }
         
         float attackIntervals = attack.duration / attack.numberOfHits;
         rb.velocity = direction.forward * attack.pushForce;
@@ -42,7 +49,8 @@ public class WeaponManager : MonoBehaviour
             yield return new WaitForSeconds(attackIntervals);
             attack.DrawAttack(direction);
         }
-
+        if (isEnemy)
+            yield return new WaitForSeconds(comboWindow);
         attacking = false;
         currentAttack++;
         if (currentAttack == currentWeapon.attacks.Length)
