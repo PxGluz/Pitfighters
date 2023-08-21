@@ -33,6 +33,7 @@ public class WeaponManager : MonoBehaviour
         shouldAttack = false;
         attacking = true;
         Player.Attack attack = currentWeapon.attacks[currentAttack];
+        
         float attackIntervals = attack.duration / attack.numberOfHits;
         rb.velocity = direction.forward * attack.pushForce;
         for (int i = 0; i < attack.numberOfHits; i++)
@@ -48,11 +49,7 @@ public class WeaponManager : MonoBehaviour
             currentAttack = 0;
         yield return new WaitForSeconds(comboWindow);
         if (!shouldAttack && !attacking)
-        {
-            print("lost combo");
             currentAttack = 0;
-        }
-            
     }
     
     void Start()

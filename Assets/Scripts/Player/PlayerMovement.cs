@@ -48,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
         {
             float angle = Vector3.Angle(Vector3.right, hit.point - Player.m.playerGraphics.position);
             bool flip = hit.point.z > Player.m.playerGraphics.position.z;
+            Player.m.rotateToPoint.rotationSpeed = RotateToPoint.originalRotationSpeed / (Player.m.weaponManager.blocking ? 20f : 1f);
             Player.m.rotateToPoint.angle = angle * (flip ? -1f : 1f) + 90f;
         }
     }

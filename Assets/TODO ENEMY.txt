@@ -1,0 +1,18 @@
+skill set
+
+move
+attack
+defend
+dash
+
+enemy states
+
+idling - revolve around player
+defensive - idling + guard, moves away from player when approached
+agressive - move in to attack, when in range attack
+faking - move in to attack, dodge last second
+
+enemy interactions
+
+if it takes damage it goes into defensive state
+if player is low will be more likely to be agressive or fake
