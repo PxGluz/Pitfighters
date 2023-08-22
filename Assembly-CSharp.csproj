@@ -53,7 +53,7 @@
      <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerCombat.cs" />
      <Folder Include="Assets" />
-     <None Include="Assets\TODO ENEMY.txt" />
+     <None Include="Assets\TODO.txt" />
      <Folder Include="Assets\Settings" />
      <Folder Include="Assets\Materials\Physics" />
      <Folder Include="Assets\Scripts" />
