@@ -9,6 +9,7 @@ public class PlayerCombat : MonoBehaviour
     {
         yield return 0;
         weaponManager = Player.m.weaponManager;
+        weaponManager.currentWeapon.attacks[1].StartAttack(Player.m.playerAttack);
     }
 
     private void BlockingLogic()

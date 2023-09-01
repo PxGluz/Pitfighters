@@ -1,10 +1,6 @@
-charge final attack
+attack hitboxes functionality
 
-functional for both enemies and player (enemy always charging)
-increasing damage
-charging cap
-
-health bar
+custom mesh builders for shapes
 
 stagger mechanic
 functional for both enemies and player

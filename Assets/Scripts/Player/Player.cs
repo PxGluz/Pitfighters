@@ -46,6 +46,23 @@ public class Player : MonoBehaviour
                     break;
             }
         }
+
+        public void StartAttack(MeshFilter attackMesh)
+        {
+            Mesh mesh = new Mesh();
+            switch (attackType)
+            {
+                case AttackType.Circle:
+                    break;
+                case AttackType.Rectangle:
+                    break;
+                case AttackType.Cone:
+                    mesh.vertices = new [] { Vector3.zero, Quaternion.Euler(0f, size / 2, 0f) * Vector3.forward * range, Quaternion.Euler(0f, -size / 2, 0f) * Vector3.forward * range};
+                    mesh.triangles = new [] { 0, 2, 1 };
+                    break;
+            }
+            attackMesh.mesh = mesh;
+        }
         
         public Attack(AttackType attackType, float duration, float numberOfHits, float size, float range, float damage, Vector2 offset, float pushForce)
         {
@@ -101,6 +118,7 @@ public class Player : MonoBehaviour
     public Rigidbody rb;
     public Transform playerGraphics;
     public Camera playerCamera;
+    public MeshFilter playerAttack;
     
     public static Player m;
 

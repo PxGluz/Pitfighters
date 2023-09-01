@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 1037
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Hierarchy
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 321}
   m_MaxSize: {x: 10000, y: 10000}
@@ -275,7 +275,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 81
+  controlID: 124
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -736,9 +736,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 2.1822405, y: 1.0233333, z: -4.297065}
+    m_Target: {x: -66.89481, y: -74.67069, z: 11.756293}
     speed: 2
-    m_Value: {x: 2.1822405, y: 1.0233333, z: -4.297065}
+    m_Value: {x: -66.89481, y: -74.67069, z: 11.756293}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -784,13 +784,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.44125548, y: -0.110948764, z: 0.055090565, w: 0.8888097}
+    m_Target: {x: 0.30980796, y: -0.59182245, z: 0.26345792, w: 0.6959887}
     speed: 2
-    m_Value: {x: -0.44125548, y: 0.110948764, z: -0.055090565, w: -0.8888097}
+    m_Value: {x: 0.30980098, y: -0.5918091, z: 0.263452, w: 0.69597304}
   m_Size:
-    m_Target: 1.2941546
+    m_Target: 52.017784
     speed: 2
-    m_Value: 1.2941546
+    m_Value: 52.017784
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -852,9 +852,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: d6690000
+      m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 2afbffff
+      m_ExpandedIDs: 1efbffffd0670000dc670000f6670000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1012,7 +1012,7 @@ MonoBehaviour:
         m_Identifier: UnityEditorInternal.Profiling.CPUProfilerModule, UnityEditor.CoreModule,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
         m_PaneScroll: {x: 0, y: 0}
-        m_ViewType: 0
+        m_ViewType: 1
         updateViewLive: 1
         m_CurrentFrameIndex: -1
         m_HierarchyOverruledThreadFromSelection: 0
@@ -2075,14 +2075,14 @@ MonoBehaviour:
   m_LastFolders:
   - Assets
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: C:\Unity\Pitfighter
+  m_LastProjectPath: C:\Unity\Pitfighters
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 4c680000
-    m_LastClickedID: 26700
-    m_ExpandedIDs: 000000004c680000
+    m_SelectedIDs: 52680000
+    m_LastClickedID: 26706
+    m_ExpandedIDs: 000000005268000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2110,7 +2110,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000004c680000
+    m_ExpandedIDs: 0000000052680000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
