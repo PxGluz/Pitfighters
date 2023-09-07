@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 using Vector3 = UnityEngine.Vector3;
 
 public class EnemyDefaultBehaviour : MonoBehaviour
@@ -12,12 +14,13 @@ public class EnemyDefaultBehaviour : MonoBehaviour
         Aggressive,
         Faking,
     }
-    
+
     [Header("References")]
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private RotateToPoint rotateToPoint;
     [SerializeField] private WeaponManager weaponManager;
     [SerializeField] private Rigidbody rb;
+    [SerializeField] private MeshFilter enemyAttack;
 
     [Header("Stats")] 
     [SerializeField] private float idleRange;
@@ -25,7 +28,7 @@ public class EnemyDefaultBehaviour : MonoBehaviour
 
     private float originalSpeed;
     private States currentState = States.Idle;
-    
+
     private void Start()
     {
         StartCoroutine(ChangeState());
@@ -96,7 +99,7 @@ public class EnemyDefaultBehaviour : MonoBehaviour
             agent.enabled = false;
             weaponManager.shouldAttack = true;
             if (!weaponManager.attacking && !finishedCombo)
-                StartCoroutine(weaponManager.Attack(rotateToPoint.transform, rb));
+                StartCoroutine(weaponManager.Attack(rotateToPoint.transform, rb, enemyAttack));
             if (weaponManager.currentAttack == weaponManager.currentWeapon.attacks.Length - 1)
             {
                 finishedCombo = true;

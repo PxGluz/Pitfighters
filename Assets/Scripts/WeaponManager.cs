@@ -29,7 +29,7 @@ public class WeaponManager : MonoBehaviour
         blockOnCooldown = false;
     }
 
-    public IEnumerator Attack(Transform direction, Rigidbody rb)
+    public IEnumerator Attack(Transform direction, Rigidbody rb, MeshFilter attackMesh)
     {
         shouldAttack = false;
         attacking = true;
@@ -48,6 +48,7 @@ public class WeaponManager : MonoBehaviour
             // Temp function
             yield return new WaitForSeconds(attackIntervals);
             attack.DrawAttack(direction);
+            StartCoroutine(attack.StartAttack(attackMesh));
         }
         if (isEnemy)
             yield return new WaitForSeconds(comboWindow);

@@ -9,7 +9,6 @@ public class PlayerCombat : MonoBehaviour
     {
         yield return 0;
         weaponManager = Player.m.weaponManager;
-        weaponManager.currentWeapon.attacks[1].StartAttack(Player.m.playerAttack);
     }
 
     private void BlockingLogic()
@@ -30,7 +29,7 @@ public class PlayerCombat : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && !weaponManager.blocking)
             weaponManager.shouldAttack = true;
         if (weaponManager.shouldAttack && !weaponManager.attacking)
-            StartCoroutine(weaponManager.Attack(Player.m.playerGraphics, Player.m.rb));
+            StartCoroutine(weaponManager.Attack(Player.m.playerGraphics, Player.m.rb, Player.m.playerAttack));
     }
     
     void Update()
